@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Antalya'nın Vahası</title>
+<style>
+  /* (Kodunuzdaki diğer CSS kısımları aynen korunmuştur) */
+  body, html {
+    margin: 0; padding: 0; font-family: Arial, sans-serif; color: #333;
+    height: 100%;
+    background: url('https://r.resimlink.com/06HMFl.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; 
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+    z-index: 1000;
+  }
+
+  nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.1em;
+  }
+
+  nav a:hover {
+    color: #ffcc00;
+  }
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.55);
+    padding: 40px 30px;
+    border-radius: 15px;
+    color: white;
+    max-width: 800px;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  }
+
+  .overlay h1 {
+    font-size: 3.2em;
+    margin-bottom: 0.3em;
+  }
+
+  .overlay p {
+    font-size: 1.5em;
+  }
+
+  section {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 40px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+    color: #006633;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #ffcc00;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  .area-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .area-item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .area-item:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  }
+
+  .area-item h3 {
+    margin-top: 0;
+    color: #004d00;
+  }
+
+  .area-item p {
+    line-height: 1.5;
+  }
+
+  form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+
+  form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+  }
+
+  form button {
+    margin-top: 20px;
+    background-color: #006633;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+  }
+
+  form button:hover {
+    background-color: #004d00;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    background: #006633;
+    color: white;
+    margin-top: 50px;
+    border-radius: 0 0 15px 15px;
+  }
+
+  @media (max-width: 600px) {
+    .overlay h1 {
+      font-size: 2em;
+    }
+    .overlay p {
+      font-size: 1.1em;
+    }
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 2500;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .modal-content {
+    background-color: #fff;
+    margin: 80px auto;
+    padding: 25px 30px;
+    border-radius: 20px;
+    width: 95%;
+    max-width: 720px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  .close-btn {
+    position: absolute;
+    right: 20px; top: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+  }
+  .close-btn:hover {
+    color: #000;
+  }
+  .modal-img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 14px;
+    margin-bottom: 20px;
+  }
+  .modal-text {
+    font-size: 1.15em;
+    white-space: pre-line;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#alanlar">Proje Alanları</a>
+  <a href="#etkinlikler">Etkinlikler</a>
+  <a href="#iletisim">İletişim</a>
+</nav>
+
+<div class="hero" role="banner">
+  <div class="overlay">
+    <h1>Antalya'nın Vahası</h1>
+    <p>Kentin Kalbinde Saklı Yeşil Bir Mücevher.</p>
+  </div>
+</div>
+
+<section id="alanlar" role="region" aria-labelledby="alanlar-title" tabindex="-1">
+  <h2 id="alanlar-title">Proje Alanları</h2>
+  <div class="area-list">
+    <div class="area-item" onclick="openModal('masif')" tabindex="0" role="button" aria-pressed="false">
+      <h3>Masif Vejetatif Katman</h3>
+      <p>Sık dokulu, orman hissi veren bitki toplulukları ile zengin yeşil alan.</p>
+    </div>
+    <div class="area-item" onclick="openModal('workshop')" tabindex="0" role="button" aria-pressed="false">
+      <h3>Workshop Alanı</h3>
+      <p>Meyve ağaçlarıyla çevrili yenilebilir peyzajda, reçel yapımı gibi etkinliklerin düzenlendiği sosyal alan.</p>
+    </div>
+    <div class="area-item" onclick="openModal('yenilebilir')" tabindex="0" role="button" aria-pressed="false">
+      <h3>Yenilebilir Peyzaj</h3>
+      <p>Burada yetişen narenciyeler, Akdeniz ağaçları ve egzotik meyveler ile doğal ve sürdürülebilir üretim alanı.</p>
+    </div>
+    <div class="area-item" onclick="openModal('kumAvlu')" tabindex="0" role="button" aria-pressed="false">
+      <h3>Örtülü Kum Avlu</h3>
+      <p>Dinginliğin sığınağı, görme ve dokunma duyularına hitap eden huzurlu köşe.</p>
+    </div>
+    <div class="area-item" onclick="openModal('xeriscape')" tabindex="0" role="button" aria-pressed="false">
+      <h3>Xeriscape Halkası</h3>
+      <p>Kurakçıl estetiğin sınırı, serin gölet etrafındaki dayanıklı bitki kuşağı.</p>
+    </div>
+    <div class="area-item" onclick="openModal('basamakliYamac')" tabindex="0" role="button" aria-pressed="false">
+      <h3>Basamaklı Yamaç</h3>
+      <p>Doğal çim amfi ile göl ve Pavilyon manzarasına açılan yeşil buluşma noktası.</p>
+    </div>
+    <div class="area-item" onclick="openModal('yansimaOdak')" tabindex="0" role="button" aria-pressed="false">
+      <h3>Yansıma Odaklı Durak</h3>
+      <p>Su ve doğanın sessizliğini mimari deneyim olarak yaşatan huzurlu durak.</p>
+    </div>
+    <div class="area-item" onclick="openModal('izoleSosyalHucresi')" tabindex="0" role="button" aria-pressed="false">
+      <h3>İzole Sosyal Hücre</h3>
+      <p>Dumansız Vaha Sınırı, sigara kullanımına izin verilen özel alan.</p>
+    </div>
+    <div class="area-item" onclick="openModal('olfaktor')" tabindex="0" role="button" aria-pressed="false">
+      <h3>Olfaktör Odak</h3>
+      <p>Duyuların uyanışı ve iyileştirici aromalarla dolu kokusal sığınak.</p>
+    </div>
+    <div class="area-item" onclick="openModal('goletPavilyon')" tabindex="0" role="button" aria-pressed="false">
+      <h3>Gölet ve Pavilyon</h3>
+      <p>Doğal yaşam ve yansıma alanı, modern pavilyonla bütünleşen sakin ortam.</p>
+    </div>
+    <div class="area-item" onclick="openModal('lokalUretimNisi')" tabindex="0" role="button" aria-pressed="false">
+      <h3>Lokal Üretim Nişi</h3>
+      <p>Kültürlerin Kesişim Noktası, yöresel el sanatları ve doğal ürünlerin sergilendiği alan.</p>
+    </div>
+  </div>
+</section>
+
+<section id="etkinlikler">
+  <h2>Etkinlikler</h2>
+  <p>Workshop alanımızda doğa ile iç içe, meyve hasadı, reçel yapımı ve diğer sürdürülebilir yaşam temalı atölyeler düzenlenmektedir.</p>
+</section>
+
+<section id="iletisim">
+  <h2>İletişim</h2>
+  <form onsubmit="alert('Mesajınız gönderildi, teşekkürler!'); return false;">
+    <label for="isim">İsim:</label>
+    <input id="isim" name="isim" required />
+    <label for="email">E-posta:</label>
+    <input id="email" type="email" name="email" required />
+    <label for="mesaj">Mesajınız:</label>
+    <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
+    <button type="submit">Gönder</button>
+  </form>
+  <p style="margin: 30px auto 0 auto; max-width: 600px;">
+    <strong>Antalya Belediyesi</strong><br />
+    Adres: Gürsu mahallesi No:14, Konyaaltı, Antalya<br />
+    Telefon: +90 242 321 40 00<br />
+    E-posta: info@antalya.bel.tr<br />
+    Web: <a href="https://www.antalya.bel.tr" target="_blank" rel="noopener noreferrer">www.antalya.bel.tr</a>
+  </p>
+</section>
+
+<footer>
+  &copy; 2026 Antalya Gürsu Vaha Projesi | Tüm hakları saklıdır.
+</footer>
+
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-content">
+    <button aria-label="Kapat" class="close-btn" onclick="closeModal()">&times;</button>
+    <h2 id="modal-title"></h2>
+    <img id="modal-img" class="modal-img" alt="Proje Alanı Görseli" />
+    <div id="modal-text" class="modal-text"></div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalImg = document.getElementById("modal-img");
+  const modalText = document.getElementById("modal-text");
+
+  const content = {
+    masif: {
+      title: "Masif Vejetatif Alan",
+      img: "https://r.resimlink.com/nXmWb3tCql.png",
+      text: `Kızılçam (Pinus brutia) - Ağaç
+Kermes Meşesi (Quercus coccifera) - Ağaç
+Defne (Laurus nobilis) - Ağaç
+Harnup / Keçiboynuzu (Ceratonia siliqua) - Ağaç
+Cezayir Menekşesi (Vinca major) - Yer Örtücü
+Acem Halısı (Drosanthemum floribundum) - Yer Örtücü
+Fare Kulağı (Dichondra repens) - Yer Örtücü
+Zakkum (Nerium oleander) - Çalı/Sarılıcı
+Mersin (Myrtus communis) - Çalı
+Ateş Dikeni (Pyracantha coccinea) - Çalı/Tırmanıcı
+Begonvil (Bougainvillea spectabilis) - Sarılıcı
+Hanımeli (Lonicera etrusca) - Sarılıcı
+Acem Borusu (Campsis radicans) - Tırmanıcı`
+    },
+    workshop: {
+      title: "Workshop Alanı",
+      img: "https://r.resimlink.com/jFKh_M.png",
+      text: `Narenciye Kokuları Altında Bir Buluşma Noktası: Geleneksel Reçel Atölyesi
+Parkın kalbinde, ulu ağaçların arasına gizlenmiş bu özel Workshop Alanı, Antalya'nın bereketli doğasını ve sıcak kültürünü bir araya getiriyor. Dış dünyanın karmaşasından tamamen izole edilmiş bu "vaha", yerli halk ile dünyanın dört bir yanından gelen misafirlerin ortak bir üretim etrafında kenetlendiği canlı bir etkileşim merkezidir.
+
+
+Atölye (Workshop) Deneyiminin Öne Çıkanları:
+
+
+Dalından Hasat: Mevsimi geldiğinde turunç, portakal, limon ve mandalina ağaçlarının dalları bereketle dolar. Atölye deneyimi, misafirlerin ve yerli halkın bu taze meyveleri neşe içinde hep birlikte dallarından toplamasıyla başlar.
+
+
+Ortak Emek ve Tecrübe Paylaşımı: Toplanan taze meyveler, ahşap kanopilerin altındaki uzun, rustik masalara getirilir. Burada, yöre halkının deneyimli elleri, misafirlere meyvelerin reçel için nasıl hazırlanacağını, kabuklarının nasıl soyulup doğranacağını gösterir. Geleneksel tarifler elden ele, nesilden nesile ve kültürden kültüre aktarılır.
+
+
+Bakır Kazanlarda Odun Ateşi: Hazırlanan meyveler, geleneksel usullere uygun olarak odun ateşinin üzerinde kaynayan devasa bakır kazanlara alınır. Birlikte karıştırılan reçeller kıvam alırken, havaya karışan tatlı narenciye ve odun ateşi kokusu bu eşsiz deneyimin en unutulmaz parçası haline gelir.
+
+
+Kültürel Kaynaşma ve Sürdürülebilirlik: Bu alan sadece bir mutfak etkinliği değil, aynı zamanda güçlü bir sosyal köprüdür. Turistler yerel kültürü bizzat yaşayarak deneyimlerken, yerli halk da kendi değerlerini ve el emeklerini sergileme fırsatı bulur. Etkinlik sonunda dileyen misafirler kendi ürettikleri reçelleri anı olarak yanlarında götürebilir veya el sanatları pazarından yöre halkının önceden hazırladığı organik ürünleri satın alarak yerel ekonomiye katkıda bulunabilirler.
+
+
+Akşamüstü güneşinin batışıyla birlikte yanan sıcak sarı aydınlatmaların altında, fonda ışıl ışıl parlayan Pavilyon'un manzarası eşliğinde gerçekleşen bu atölyeler; katılımcılara Antalya'nın ruhunu, misafirperverliğini ve doğasının mucizelerini tek bir kavanozda sunar
+`
+    },
+    yenilebilir: {
+      title: "Yenilebilir Peyzaj",
+      img: "https://r.resimlink.com/Yo0cCJU.png",
+      text: `1. Narenciyeler (Atölyenin Kalbi - Herdemyeşil)
+Bu ağaçlar kışın yaprak dökmedikleri için yıl boyu yeşil bir doku sağlar, baharda muazzam kokulu çiçekler açar ve kış aylarında renkli meyveleriyle görsel bir şölen sunar.
+
+
+Turunç (Citrus aurantium): Antalya sokaklarının vazgeçilmezi. Reçeli muazzam olur, hastalıklara ve susuzluğa en dayanıklı narenciyedir.
+
+
+Portakal (Citrus sinensis): Finike veya Washington Navel türleri hem gölge ağacı hem de taze tüketim/reçel için idealdir.
+
+
+Limon (Citrus limon): Yediveren türleri seçilirse yılın büyük bölümünde üzerinde hem çiçek hem meyve görülebilir.
+
+
+Mandalina (Citrus reticulata): Satsuma veya Klementin türleri. Çocukların en çok ilgisini çekecek, dalından koparıp yemesi en kolay meyvedir.
+
+
+Kamkat / Kumkuat (Fortunella japonica): Çok büyük boylara ulaşmaz, bodur yapısıyla yürüyüş yolları kenarında veya oturma alanlarında estetik bir odak noktası yaratır. Meyvesi kabuğuyla yenir veya harika reçeli yapılır.
+
+
+
+Akdeniz'in Karakteristik Ağaçları (Geleneksel ve Estetik)
+Alana tarihi, doğal ve köklü bir Akdeniz ruhu katmak için idealdir.
+
+
+Zeytin (Olea europaea): Gümüşi yeşil yapraklarıyla harika bir doku yaratır. Parkın belli noktalarına heykelsi, anıt formlu yaşlı zeytinler yerleştirilebilir.
+
+
+Nar (Punica granatum): Yaprak döken bir ağaçtır ancak ilkbahar sonundaki parlak turuncu/kırmızı çiçekleri ve sonbahardaki meyveleriyle peyzajda çok güçlü bir renk vurgusu yapar.
+
+
+Yeni Dünya / Malta Eriği (Eriobotrya japonica): Herdemyeşildir. Büyük, tropik görünümlü yaprakları vardır ve ilkbaharda ilk meyve veren ağaçlardandır.
+
+
+Keçiboynuzu / Harnup (Ceratonia siliqua): Koyu yeşil yapraklı, çok geniş tepe tacı yapan, muazzam bir gölge ağacıdır. Kuraklığa çok dayanıklıdır.
+
+
+İncir (Ficus carica): Geniş ve dilimli yapraklarıyla çok güzel gölge yapar. Yaz sonu meyve şöleni sunar.
+
+
+
+Tropikal ve Egzotik Meyveler (Antalya İklimine Uyumlu)
+Vaha konseptini desteklemek ve ziyaretçilere "farklı" bir deneyim sunmak için parka serpiştirilebilir.
+
+
+Avokado (Persea americana): Antalya'da çok iyi yetişir. Boylu ve heybetli bir ağaç formuna ulaşır, herdemyeşildir.
+
+
+Muz (Musa spp.): Özellikle gölet kenarına yakın, rüzgar almayan korunaklı noktalara dikildiğinde devasa yapraklarıyla anında "tropikal vaha" hissi verir.
+
+
+Passiflora / Çarkıfelek (Passiflora edulis): Eğer alanda bir pergola, kemer veya yürüyüş yolu üzeri tünel yapacaksanız, bu sarılıcı bitki efsanevi çiçekleri ve lezzetli egzotik meyveleriyle mükemmel bir seçimdir`
+    },
+    kumAvlu: {
+      title: "Örtülü Kum Avlu",
+      img: "https://r.resimlink.com/RO0AM-Sj.png",
+      text: `Parkın dinamik temposundan ve atölyelerin enerjisinden uzaklaşıp derin bir nefes almak isteyenler için tasarlanan "Örtülü Kum Avlu", projedeki vaha konseptinin en huzurlu köşesidir. Görme, dokunma ve işitme duyularına hitap eden bu alan, ziyaretçilere adeta gizli bir sahil kasabasındaymış hissi verir.
+
+Mekanın Öne Çıkan Özellikleri:
+
+Zemindeki Doğallık (İnce Kum Dokusu): Ziyaretçileri ayakkabılarını çıkarıp doğayla doğrudan temas kurmaya davet eden incecik, temiz bir kum zemin. Şehrin sert betonundan kurtulup bu yumuşak zemine basmak, anında topraklayıcı ve stres atıcı bir etki yaratır.
+
+Gökyüzündeki Dans (Uçuşan Beyaz Örtüler): Oturma alanının üzerini sert ve ağır bir çatı yerine, Antalya'nın ılık melteminde nazikçe dalgalanan, yarı saydam beyaz kumaşlar örtüyor. Yelken bezini andıran bu uçuşan örtüler, içeriye süzülen güneş ışığını yumuşatarak kumların üzerinde gün boyu değişen, dinamik ve romantik bir gölge oyunu yaratır.
+
+Bohem ve Rahat Oturma Düzeni: Kum zeminin doğallığına uyum sağlayan alçak ahşap sedirler, hasır puflar, makrome detaylar ve kalın yer minderleri... Mekan, resmiyetten tamamen uzak, "yavaşla ve anın tadını çıkar" mesajı veren bir düzene sahiptir.`
+    },
+    xeriscape: {
+      title: "Xeriscape Halkası",
+      img: "https://r.resimlink.com/Oosn1lI.png",
+      text: `Kurakçıl Estetiğin Sınırı: Xeriscape Halkası
+Parkın ana kalbinde yer alan serin göletin, bereketli narenciye atölyesinin ve dingin örtülü kum avlunun etrafını saran "Xeriscape (Kurakçıl Peyzaj) Halkası", projedeki vaha konseptini en güçlü şekilde vurgulayan geçiş zonudur. Çölün ortasındaki bir sığınağı andıran iç mekanların değerini anlamak için, ziyaretçiler önce bu heykelsi ve dayanıklı kurakçıl bitki kuşağından geçerler.
+Botanik İsim (Latince) - Türkçe İsim - Tasarım İşlevi ve Alandaki Rolü:
+Echinocactus grusonii – Altın Fıçı Kaktüsü - Küresel formu ve altın sarısı dikenleriyle parkın girişlerinde ve yürüyüş yolu kıvrımlarında güçlü bir odak noktası yaratır.
+Agave attenuata – Kuğu Boynu Agav - Dikenli Agave americana'ya göre çok daha yumuşak hatlı ve dikensizdir. Yaya yollarına yakın güvenli bölgelerde, heykelsi rozet formuyla kullanılır.
+Opuntia ficus-indica – Kaynanadili (Frenk İnciri) - "Yenilebilir Peyzaj" temanıza mükemmel bir gönderme yapar. Kurakçıldır ve yaz sonunda lezzetli mor/turuncu meyveler verir.
+Aloe arborescens – Ağaçsı Sarısabır - Kış aylarında açan parlak turuncu/kırmızı çiçekleriyle, parkın kış peyzajında da canlı kalmasını sağlar.
+Yucca rostrata – Mavi Gaga Yuka - Gümüşi-mavi ince yaprakları ve ağaçsı gövdesiyle alana anında egzotik ve çölümsü bir dikey etki katar.
+Stipa tenuissima – Meksika Tüy Otu - İncecik, sarışın dokusuyla en ufak bir meltemde bile dalgalanarak alana yumuşaklık ve hareket katar. Kaktüslerin sert formunu kırar.
+Dasylirion wheeleri – Çöl Kaşığı - Küresel, dikenli ve şeritvari yapraklarıyla volkanik cüruf serilmiş zeminlerde harika bir mimari silüet oluşturur.
+Senecio cineraria – Kül Çiçeği - Gümüş rengi ve kadifemsi yapraklarıyla, yeşil ve mavi tonlu sukkulentlerin arasında mükemmel bir renk kontrastı sağlar.
+Euphorbia tirucalli – Kalem Kaktüs - Yapraksız, dal dal ayrılan çubuksu yeşil formuyla deniz mercanlarını andırır, arka fon bitkisi olarak dolgunluk yaratır.
+Aptenia cordifolia – Buz Çiçeği - Parlak yeşil etli yaprakları ve fuşya renkli minik çiçekleriyle taşların arasından sarkarak zemini hızla kaplar.
+Sedum palmeri – Damkoruğu - Sığ köklü ve son derece kanaatkardır. Kış sonu/ilkbahar başında açan sarı çiçekleriyle taşlık alanları canlandırır.
+Drosanthemum hispidum – Acem Halısı - İlkbaharda alanı adeta pembe/mor bir halı gibi kaplayarak inanılmaz bir görsel şölen sunar, hiç su istemez.`
+    },
+    basamakliYamac: {
+      title: "Basamaklı Yamaç",
+      img: "https://r.resimlink.com/pFObXiBd6.png",
+      text: `Basamaklı Yamaç: Doğal Çim Amfi
+Parkın doğal eğimiyle uyum içinde şekillenen "Basamaklı Yamaç", alanın kalbindeki göl ve Pavilyon manzarasına kucak açan davetkar bir buluşma noktasıdır. Sert zeminli geleneksel oturma birimlerine yeşil ve yumuşak bir alternatif sunan bu çim amfi, ziyaretçileri doğrudan toprağa dokunmaya ve anı yavaşlatmaya çağırır.`
+    },
+    yansimaOdak: {
+      title: "Yansıma Odaklı Durak",
+      img: "https://r.resimlink.com/jTYXmOI42hJM.png",
+      text: `Yansıma Odaklı Durak: Akustik Su Cebi
+Parkın dinamik ritmine (koşu, yürüyüş ve bisiklet yolları) kısa ve huzurlu bir es vermek isteyenler için tasarlanan "Yansıma Odaklı Durak", suyun dinlendirici gücünü ve doğanın sessizliğini mimari bir deneyime dönüştürür. Aktif güzergahın hemen kenarında yer alan bu duraklama noktası, ziyaretçileri yavaşlamaya ve anı hissetmeye davet eder.`
+    },
+    izoleSosyalHucresi: {
+      title: "İzole Sosyal Hücre",
+      img: "https://r.resimlink.com/7zjXkUa.png",
+      text: `İzole Sosyal Hücre: Dumansız Vaha Sınırı
+Projenin kalbindeki "Vaha" konseptinin temelini oluşturan temiz havayı, doğal aromaları ve sağlıklı atmosferi korumak amacıyla tasarlanan "İzole Sosyal Hücre", park sınırları içerisinde sigara kullanımına izin verilen tek ve özel alandır.`
+    },
+    olfaktor: {
+      title: "Olfaktör Odak",
+      img: "https://r.resimlink.com/N83o5URE.png",
+      text: `Duyuların Uyanışı ve İyileştirici Aromalar
+Vaha kurgusunun en görünmez ama en güçlü bağlayıcısı olan bu alan, kent yorgunluğunu salt görsel değil, duyusal olarak da onaran "kokusal" bir sığınaktır. Antalya'nın karakteristik ılık rüzgarlarıyla taşınan aromatik bitki dokusu, ziyaretçileri adım attıkları andan itibaren görünmez bir terapi çemberine alır. `
+    },
+    goletPavilyon: {
+      title: "Gölet ve Pavilyon",
+      img: "https://r.resimlink.com/z9S-f8icv.png",
+      text: `Projenin kalbinde yer alan dingin Gölet, kentin karmaşasından sıyrılan ziyaretçiler için doğal bir yaşam ve yansıma alanı sunar. Suyun sakinleştirici gücü, alanın etrafındaki yeşil dokuyu kucaklarken, hemen kıyısında zarifçe yükselen modern Pavilyon ile kusursuz bir bütünlük oluşturur.
+
+Tamamen şeffaf ve dışa dönük bir tasarıma sahip olan bu Pavilyon, yalnızca dinamik bir sosyal toplanma merkezi değil; aynı zamanda Antalya’nın köklü geçmişini koruyan bir kültürel hafıza odasıdır. İç mekanda özenle sergilenen Antalya'ya ait tarihi eserler ve antik buluntular, şeffaf cepheler sayesinde dışarıdaki göletin manzarasıyla iç içe geçer.
+
+Ziyaretçiler bu alanda suyun huzur verici varlığı eşliğinde sosyalleşirken; Antalya'nın binlerce yıllık tarihi mirasını, doğayla aralarında hiçbir görsel engel olmadan, akışkan ve aydınlık bir mekanda deneyimleme fırsatı bulurlar.`
+    },
+    lokalUretimNisi: {
+      title: "Lokal Üretim Nişi",
+      img: "https://r.resimlink.com/XlwTFPGcY8it.png",
+      text: `Antalya’nın yerel halkı ile dünyanın dört bir yanından gelen ziyaretçileri "ortak üretim ve paylaşım" etrafında kenetleyen canlı bir etkileşim alanıdır. Yöresel el sanatlarının ve atölyelerden çıkan doğal ürünlerin sergilendiği bu niş; turistlere otantik bir Antalya deneyimi sunarken, yerel emeği destekleyerek kültürler arası sürdürülebilir bir köprü kurar.`
+    },
+  };
+
+  function openModal(areaKey) {
+    const data = content[areaKey];
+    if(!data) return;
+    modalTitle.textContent = data.title;
+    modalImg.src = data.img;
+    modalImg.alt = data.title;
+    modalText.textContent = data.text;
+    modal.style.display = 'block';
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    if(event.target == modal) {
+      closeModal();
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if(e.key === 'Escape' && modal.style.display === 'block') {
+      closeModal();
+    }
+  });
+</script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
+
+body, html {
+  margin: 0; 
+  padding: 0; 
+  height: 100%;
+  background-image: url('https://r.resimlink.com/06HMFl.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed; }
