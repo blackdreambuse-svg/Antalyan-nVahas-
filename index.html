@@ -1,0 +1,276 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Antalya Gürsu Vaha Projesi</title>
+<style>
+  body, html {
+    margin: 0; padding: 0; font-family: Arial, sans-serif; color: #333;
+    height: 100%;
+    /* Tüm sayfa arkaplanı */
+    background: url('https://r.resimlink.com/06HMFl.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* Navbar */
+  nav {
+    position: fixed;
+    top: 0; width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+    z-index: 1000;
+  }
+  nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.1em;
+  }
+  nav a:hover {
+    color: #ffcc00;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 100vh;
+    /* Arka plan görseli sayfa genel arka planı olarak zaten yer aldığı için hero arka planı koymadım */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.55);
+    padding: 40px 30px;
+    border-radius: 15px;
+    color: white;
+    max-width: 800px;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  }
+  .overlay h1 {
+    font-size: 3.2em;
+    margin-bottom: 0.3em;
+  }
+  .overlay p {
+    font-size: 1.5em;
+  }
+  
+  section {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 40px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  h2 {
+    color: #006633;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #ffcc00;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  /* Alanlar Listesi */
+  .area-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 30px;
+  }
+  .area-item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .area-item h3 {
+    margin-top: 0;
+    color: #004d00;
+  }
+  .area-item p {
+    line-height: 1.4;
+  }
+
+  /* İletişim Formu */
+  form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+  }
+  form button {
+    margin-top: 20px;
+    background-color: #006633;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+  }
+  form button:hover {
+    background-color: #004d00;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    background: #006633;
+    color: white;
+    margin: 40px 0 0 0;
+    border-radius: 0 0 15px 15px;
+  }
+
+  @media (max-width: 600px) {
+    .overlay h1 {
+      font-size: 2em;
+    }
+    .overlay p {
+      font-size: 1.1em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#alanlar">Proje Alanları</a>
+  <a href="#etkinlikler">Etkinlikler</a>
+  <a href="#iletisim">İletişim</a>
+</nav>
+
+<div class="hero">
+  <div class="overlay">
+    <h1>Antalya Gürsu Vaha Projesi</h1>
+    <p>Antalya'nın yarı bandına uygun, doğa ve sosyal yaşamla bütünleşik sürdürülebilir vaha alanı konsepti.</p>
+  </div>
+</div>
+
+<section id="alanlar">
+  <h2>Proje Alanları</h2>
+  <div class="area-list">
+    <div class="area-item">
+      <h3>Workshop Alanı</h3>
+      <p>Meyve ağaçlarıyla çevrili yenilebilir peyzajda, reçel yapımı gibi etkinliklerin düzenlendiği sosyal alan.</p>
+    </div>
+    <div class="area-item">
+      <h3>Yenilebilir Peyzaj</h3>
+      <p>Meyve ağaçlarının bulunduğu, doğayla etkileşim sunan sürdürülebilir alan.</p>
+    </div>
+    <div class="area-item">
+      <h3>Masif Vejetatif Katman</h3>
+      <p>Sık dokulu, orman hissi veren bitki toplulukları ile zengin yeşil alan.</p>
+    </div>
+    <div class="area-item">
+      <h3>Örtülü Kum Avlu</h3>
+      <p>Kuru ve kumlu toprağa uygun bitkilerle kaplı, dinlenme amaçlı açık alan.</p>
+    </div>
+    <div class="area-item">
+      <h3>Xeriscape Halkası</h3>
+      <p>Kurak ve yarı kurak bitkilerle su tasarrufu sağlayan peyzaj alanı.</p>
+    </div>
+    <div class="area-item">
+      <h3>Basamaklı Yamaç</h3>
+      <p>Çim amfi şeklinde sosyal ve doğal oturma alanı yaratılmış eğimli zemin.</p>
+    </div>
+    <div class="area-item">
+      <h3>Yansıma Odaklı Durak</h3>
+      <p>Gölet yansımalarının estetik olarak ön plana çıktığı dinlenme noktası.</p>
+    </div>
+    <div class="area-item">
+      <h3>İzole Sosyal Hücre</h3>
+      <p>Sadece bu alanda sigara içilebilen izole, sosyal etkileşim odaklı küçük alan.</p>
+    </div>
+    <div class="area-item">
+      <h3>Olfaktör Odak</h3>
+      <p>Güzel kokulu bitkiler ve oturma birimleri ile duyusal zenginlik sunan alan.</p>
+    </div>
+    <div class="area-item">
+      <h3>Gölet</h3>
+      <p>Proje merkezinde yer alan su kütlesi, doğal yaşam ve yansıma alanı.</p>
+    </div>
+    <div class="area-item">
+      <h3>Pavilyon</h3>
+      <p>Gölet çevresinde modern, şeffaf tasarımlı sosyal ve kültürel toplanma alanı.</p>
+    </div>
+    <div class="area-item">
+      <h3>Lokal Üretim Nişi</h3>
+      <p>Yerel üretim ve ürünlerin sergilendiği, desteklendiği alan.</p>
+    </div>
+  </div>
+</section>
+
+<section id="etkinlikler">
+  <h2>Etkinlikler</h2>
+  <p>Workshop alanımızda doğa ile iç içe, meyve hasadı, reçel yapımı ve diğer sürdürülebilir yaşam temalı atölyeler düzenlenmektedir. Etkinlik takvimi ve kayıt için lütfen iletişime geçiniz.</p>
+</section>
+
+<section id="iletisim">
+  <h2>İletişim</h2>
+  <form action="#" method="POST" onsubmit="alert('Mesajınız gönderildi, teşekkürler!'); return false;">
+    <label for="isim">İsim:</label>
+    <input type="text" id="isim" name="isim" required />
+
+    <label for="email">E-posta:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="mesaj">Mesajınız:</label>
+    <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
+
+    <button type="submit">Gönder</button>
+  </form>
+  <p style="margin-top: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+    <strong>Antalya Belediyesi</strong><br/>
+    Adres: Şarampol Caddesi No:14, Muratpaşa, Antalya<br/>
+    Telefon: +90 242 321 40 00<br/>
+    E-posta: info@antalya.bel.tr<br/>
+    Web: <a href="https://www.antalya.bel.tr" target="_blank">www.antalya.bel.tr</a>
+  </p>
+</section>
+
+<footer>
+  &copy; 2024 Antalya Gürsu Vaha Projesi | Tüm hakları saklıdır.
+</footer>
+
+</body>
+</html>
+    
+  </body>
+  
+</html>
